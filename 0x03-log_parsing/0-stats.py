@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""parsing HTTP request logs."""
+'''A script for parsing HTTP request logs.
+'''
 import re
 
 
 def extract_input(input_line):
-    """parse input"""
+    '''Extracts sections of a line of an HTTP request log.
+    '''
     fp = (
         r'\s*(?P<ip>\S+)\s*',
         r'\s*\[(?P<date>\d+\-\d+\-\d+ \d+:\d+:\d+\.\d+)\]',
@@ -27,7 +29,7 @@ def extract_input(input_line):
 
 
 def print_statistics(total_file_size, status_codes_stats):
-    '''Prints the statistics of the HTTP request log.
+    '''Prints the accumulated statistics of the HTTP request log.
     '''
     print('File size: {:d}'.format(total_file_size), flush=True)
     for status_code in sorted(status_codes_stats.keys()):
